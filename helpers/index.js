@@ -1,2 +1,4 @@
 const HttpError = require("./HttpError");
-module.exports = { HttpError };
+const ctrlWrapper = require("./ctrlWrapper");
+const checkRequestValidateBody = require("./checkRequestValidateBody");
+module.exports = { HttpError, ctrlWrapper, checkRequestValidateBody };
