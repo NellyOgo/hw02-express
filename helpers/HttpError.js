@@ -1,23 +1,7 @@
-const mongoose = require("mongoose");
+const HttpError = (status, message) => {
+  const error = new Error(message);
+  error.status = status;
+  return error;
+};
 
-const contactSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: [true, "Set name for contact"],
-    },
-    email: {
-      type: String,
-    },
-    phone: {
-      type: String,
-    },
-    favorite: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  { versionKey: false }
-);
-
-module.exports = mongoose.model("Contact", contactSchema);
+module.exports = HttpError;
